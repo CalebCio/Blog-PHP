@@ -14,37 +14,27 @@ adminOnly();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Section - Edit Post</title>
 
+    <!-- CDN LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+
     <!-- Linking Css file  -->
     <link rel="stylesheet" href="../../assets/CSS/styles.css">
 
     <link rel="stylesheet" href="../../assets/CSS/admin.css">
 
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- UNICON STYLES -->
-
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-
 
 </head>
 <body>
     
-
+<!-- 
 <?php
     include ROOT_PATH . "/app/includes/adminheader.php";
-?>
+?> -->
 
-
-<!-- Admin Page Wrapper -->
-
-
-<div class="admin__wrapper">
 
 <!-- Left Side Bar Starts-->
 
@@ -56,88 +46,68 @@ adminOnly();
 
 <!-- Admin Content Starts -->
 
-    <div class="admin__content">
-        <div class="botton__group">
-            <a href="create.php" class="btn">Add Post</a>
-            <a href="index.php" class="btn">Manage Post</a>
+<!-- Left Side Bar Ends -->
+
+<div class="col-sm-9 p-3">
+        <div class="d-flex justify-content-around">
+            <a href="create.php" class="btn btn-secondary">Add Post</a>
+            <a href="index.php" class="btn btn-secondary">Manage Posts</a>
         </div>
 
-
-        <div class="content">
-
-        <h2 class="page__title">Edit Post</h2>
-        <?php
-            include ROOT_PATH . "/app/helpers/formErrors.php";
-        ?>
+        <h2 class="text-center mt-3">Edit Post</h2>
+        <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
 
         <form action="edit.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-        <div>
-                <label>Title</label>
-                <input type="text" name="title" value="<?php echo $title; ?>" class="text__input">
+            <div class="mb-3 mt-3">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter email"  name="title" value="<?php echo $title; ?>">
             </div>
-
-            <div>
-                <label>Body</label>
-                <textarea name="body" id="body"><?php echo $body; ?></textarea>
+            <div class="mb-3">
+                <label for="body">Body:</label>
+                <textarea class="form-control" rows="5" id="body" name="body"><?php echo $body; ?></textarea>
             </div>
-
-            <div>
-                <label>Image</label>
-                <input type="file" name="image" class="text__input">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" name="image" type="file" id="formFile">
             </div>
-
-            <div>
-                <label>Topic</label>
-                <select name="topic_id" class="text__input">
-
-                    <option value=""></option>
+            <div class="mb-3">
+                <label class="form-label">Topic</label>
+                <select name="topic_id" class="form-select mt-3">
+                    <option></option>
 
                     <?php foreach ($topics as $key => $topic): ?>
-
                         <?php if (!empty($topic_id) && $topic_id == $topic['id']): ?>
                             <option selected value="<?php echo $topic['id']; ?>"><?php echo $topic['name']; ?></option>
                         <?php else: ?>
                             <option value="<?php echo $topic['id']; ?>"><?php echo $topic['name']; ?></option>
                         <?php endif; ?>
                     <?php endforeach; ?>
-
                 </select>
             </div>
-
-            <div>
-
-                <?php if (empty($published) && $published == 0): ?>
-                    <label>
-                        <input type="checkbox" name="published">
-                        Publish
+            <div class="form-check mb-3">
+                <?php if (empty($published)): ?>
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="published"> Publish
                     </label>
-                <?php else: ?>
-                    <label>
-                        <input type="checkbox" name="published" checked>
-                        Publish
+                    <?php else: ?>
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="published" checked> Publish
                     </label>
                 <?php endif; ?>
             </div>
-
-            <div>
-                <button type="submit"  name="update_post" class="btn">Update Post</button>
-            </div>
+            <button type="submit" name="update_post" class="btn btn-primary">Update Post</button>
         </form>
-
-        </div>
-
-
     </div>
-
-<!-- Admin Content Ends -->
-
+  </div>
 </div>
 
+</section>
 
-    
+
+    <!-- CDN LINK -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     <!-- JQwery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

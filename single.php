@@ -23,17 +23,17 @@ $posts = selectAll('posts', ['published' => 1]);
     <!-- Linking Css file  -->
     <link rel="stylesheet" href="assets/CSS/styles.css">
 
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <!-- CDN LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- UNICON STYLES -->
-
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        section {
+            padding: 60px 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -42,77 +42,62 @@ $posts = selectAll('posts', ['published' => 1]);
     include(ROOT_PATH . "/app/includes/header.php");
 ?>
 
-
-
-
-    <div class="page__wrapper">
-
-
-        <!-- Content Starts-->
-
-            <div class="content clearfix">
-
-                <!-- Main Content Starts -->
-
-                <div class="main__content single">
+<section  class="bg-white">
+    <div class="container-lg bg-light">
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-sm-8 p-3">
                     <h1 class="post__title"><?php echo $post['title']; ?></h1>
-
-                    <div class="post__content">
-                        <?php echo html_entity_decode($post['body']); ?>
-                    </div>
+                    <br>
+                    <?php echo html_entity_decode($post['body']); ?>
                 </div>
+                
+                <div class="col-sm-4 p-5">
 
-
-                <!-- Main Content Ends -->
-
-
-
-                <!-- sidebar Starts -->
-
-                <div class="sidebar single">
-                    
-                    <div class="section popular">
-                        <h2 class="section__title">Popular posts</h2>
-
-                        <?php foreach($posts as $p): ?>
-                            <div class="post clearfix" >
-                                <img src="<?php echo BASE_URL . '/assets/images/' . $p['image']; ?>" alt="">
-                                <a href="" class="title"><h4><?php echo $p['title']; ?></h4></a>
+                    <h1>Popular posts</h1>
+                    <?php foreach($posts as $p): ?>
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                <img src="<?php echo BASE_URL . '/assets/images/' . $p['image']; ?>" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                <div class="card-body">
+                                    <p><a class="text-secondary" href="single.php?id=<?php echo $p['id']; ?>" class="title"><?php echo $p['title']; ?></a></p>
+                                </div>
+                                </div>
                             </div>
+                        </div>
                         <?php endforeach; ?>
 
-                    </div>
-                    
+                    <h2>Search</h2>
+                    <form action="index.php" method="post">
+                        <input type="text" name="search__term" class="form-control" placeholder="Search...">
+                    </form>
 
-                    <div class="section topics">
-                        <h2 class="section__title">Topics</h2>
-                        <ul>
 
-                            <?php foreach($topics as $topic): ?>
-                                <li><a href="<?php echo BASE_URL . '/index.php?t_id=' . $topic['id'] . '&name=' . $topic['name']; ?>"><?php echo $topic['name']; ?></a></li>
+                    <div class="mt-5">
+                        <h2>Topics</h2>
+
+                        <ul class="list-group list-group-flush">
+                            <?php foreach ($topics as $key => $topic): ?>
+                                <li class="list-group-item mb-3 p-2"><a class="text-secondary" href="<?php echo BASE_URL . '/index.php?t_id=' . $topic['id'] . '&name=' . $topic['name']; ?>"><?php echo $topic['name']; ?></a></li>
                             <?php endforeach; ?>
-                            
                         </ul>
                     </div>
                 </div>
-
-                <!-- sidebar ends -->
             </div>
+        </div>
 
-        <!-- Content Ends-->
     </div>
-
+</section>
 
 <?php
     include(ROOT_PATH . "/app/includes/footer.php");
-?>   
+?>    
 
-    <!-- JQwery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Js Files-->
-    <script src="js/script.js"></script>
-
+    <!-- CDN LINK -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>

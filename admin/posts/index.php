@@ -14,28 +14,25 @@ adminOnly();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Section - Manage Posts</title>
 
+    <!-- CDN LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+
     <!-- Linking Css file  -->
     <link rel="stylesheet" href="../../assets/CSS/styles.css">
 
     <link rel="stylesheet" href="../../assets/CSS/admin.css">
 
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- UNICON STYLES -->
-
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    
 </head>
 <body>
     
-<?php
+<!-- <?php
     include ROOT_PATH . "/app/includes/adminheader.php";
-?>
+?> -->
 
 
 <!-- Admin Page Wrapper -->
@@ -53,73 +50,61 @@ adminOnly();
 
 <!-- Admin Content Starts -->
 
-    <div class="admin__content">
-        <div class="botton__group">
-            <a href="create.php" class="btn">Add Post</a>
-            <a href="index.php" class="btn">Manage Posts</a>
+
+
+<div class="col-sm-9 p-3">
+        <div class="d-flex justify-content-around">
+            <a href="create.php" class="btn btn-secondary">Add Post</a>
+            <a href="index.php" class="btn btn-secondary">Manage Posts</a>
         </div>
 
-
-        <div class="content">
-
-        <h2 class="page__title">Manage Posts</h2>
-
+        <h2 class="text-center mt-3">Manage Posts</h2>
         <?php
             include ROOT_PATH . "/app/includes/messages.php";
         ?>
 
-        <table>
+
+        <table class="table caption-top">
+            <caption>List of posts</caption>
             <thead>
-                <th>SN</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th colspan="3">Action</th>
+                <tr>
+                <th scope="col">Sn</th>
+                <th scope="col">Title</th>
+                <!-- <th scope="col">Author</th> -->
+                <th scope="col">Actions</th>
+                </tr>
             </thead>
 
             <tbody>
-
-
                 <?php foreach ($posts as $key => $post): ?>
-                    <tr>
-                        <td><?php echo $key + 1; ?></td>
-                        <td><?php echo $post['title']; ?></td>
-                        <td>Vell</td>
-                        <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">edit</a></td>
-                        <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
 
-                        <?php if ($post['published']): ?>
-                            <td><a href="edit.php?published=0&p_id=<?php echo $post['id']; ?>" class="unpublish">unpublish</a></td>
-                        <?php else: ?>
-                            <td><a href="edit.php?published=1&p_id=<?php echo $post['id']; ?>" class="publish">publish</a></td>
-                        <?php endif; ?>
-                        
-                    </tr>
-                <?php endforeach; ?>
+                <tr>
+                <th scope="row"><?php echo $key + 1; ?></th>
+                <td><?php echo $post['title']; ?></td>
+                <!-- <td>Vell</td> -->
+                <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">edit</a></td>
+                <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
 
-
+                <?php if ($post['published']): ?>
+                <td><a href="edit.php?published=0&p_id=<?php echo $post['id']; ?>" class="unpublish">unpublish</a></td>
+                <?php else: ?>
+                <td><a href="edit.php?published=1&p_id=<?php echo $post['id']; ?>" class="publish">publish</a></td>
+                <?php endif; ?>
+                </tr>
                 
+                <?php endforeach; ?>
             </tbody>
         </table>
 
-        </div>
-
-
+        
     </div>
-
-<!-- Admin Content Ends -->
-
+  </div>
 </div>
 
+</section>
 
-    
-    
-
-    <!-- JQwery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Js Files-->
-    <script src="../../js/script.js"></script>
-
+<!-- CDN LINK -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
 </body>

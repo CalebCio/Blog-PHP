@@ -14,37 +14,29 @@ adminOnly();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Section - Dashboard</title>
 
+    <!-- CDN LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+
+    <title>Vell Magazine</title>
+
     <!-- Linking Css file  -->
     <link rel="stylesheet" href="../assets/CSS/styles.css">
 
-    <link rel="stylesheet" href="../assets/CSS/admin.css">
-
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- UNICON STYLES -->
-
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-
+    <!-- <link rel="stylesheet" href="../assets/CSS/admin.css"> -->
 
 </head>
 <body>
     
-
+<!-- 
 <?php
     include ROOT_PATH . "/app/includes/adminheader.php";
-?>
+?> -->
 
 
-<!-- Admin Page Wrapper -->
-
-
-<div class="admin__wrapper">
 
 <!-- Left Side Bar Starts-->
 
@@ -56,59 +48,17 @@ adminOnly();
 
 <!-- Admin Content Starts -->
 
-    <div class="admin__content">
-
-
-        <div class="content">
-
-        <h2 class="page__title">Dashboard</h2>
-
+    <div class="col-sm-9 p-3">
+        <h2 class="text-center">Dashboard</h2>
         <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
-
-        
-
-        </div>
-
-
     </div>
-
-<!-- Admin Content Ends -->
-
+  </div>
 </div>
 
+</section>
 
-    
-
-    <!-- JQwery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- CkEditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
-
-    <script>
-        
-        ClassicEditor
-        .create( document.querySelector( '#body' ), {
-            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-            heading: {
-                options: [
-                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-                ]
-            }
-        } )
-        .catch( error => {
-            console.log( error );
-        } );
-
-    </script>
-
-
-    <!-- Js Files-->
-    <script src="../../assets/js/script.js"></script>
-
-
+<!-- CDN LINK -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>

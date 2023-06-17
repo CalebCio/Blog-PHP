@@ -1,7 +1,8 @@
+
 header {
     height: 66px;
 }
-
+/* 
 .admin__wrapper {
     display: flex;
     height: calc(100% - 66px);
@@ -51,7 +52,7 @@ th, td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
-}
+} */
 
 .edit {
     color: green;
@@ -71,7 +72,7 @@ th, td {
 .publish:hover {
     text-decoration: underline;
 }
-
+/* 
 form div {
     margin-bottom: 15px;
-}
+} */

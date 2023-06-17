@@ -1,4 +1,4 @@
-<footer>
+<!-- <footer>
     <div class="left_footer">
         <h3>
             Vell Magazine
@@ -38,10 +38,26 @@
         </div>
 
         <div class="rights">
-            All rights reserved @ <?php echo date("Y");?>
+            All rights reserved 
         </div>
     </div>
-</footer>
+</footer> -->
 
-</body>
-</html>
+
+
+<footer class="bg-light">
+    <div class="container-lg">
+        <div class="row justify-content-center pt-3 align-items-center">
+            <div class="col-md-5 text-center mb-3 text-md-start">
+                <a class="text-secondary mx-2" href="#"><i class="bi bi-instagram"></i></a>
+                <a class="text-secondary" href="#"><i class="bi bi-whatsapp"></i></a>
+            </div>
+                
+
+            <div class="col-md-5 text-muted mb-3 text-center">
+                Copyright @ <?php echo date("Y");?> Vell Magazine <br>
+                All rights reserved.
+            </div>
+            </div>
+    </div>
+</footer>

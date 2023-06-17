@@ -1,28 +1,22 @@
 <header>
-
-    <div class="header__section">
-
-        <div class="top__menu">
-
-            <a class="title_header" href="<?php echo BASE_URL . "/index.php" ?>">
-                <p>Vell Magazine</p>
+    <nav class="navbar navbar-expand-md fixed-top bg-white navbar-light">
+        <div class="container-xxl">
+            
+            <a href="<?php echo BASE_URL . '/index.php' ?>" class="navbar-brand">
+                <span class="fw-bold text-secondary">
+                    Vell<span class="fw-bold text-warning">Magazine</span>
+                    <i class="bi bi-book-half"></i>
+                </span>
             </a>
 
-            <div class="user">
-
-                <?php if(isset($_SESSION['username'])): ?>
-                    <li>
-                        <a href="#"><span class="material-icons">person</span><?php echo $_SESSION['username']; ?> <i class="fas fa-chevron-down"></i></a>
-                        <ul>
-                        <li><a href="<?php echo BASE_URL . "/logout.php"; ?>" class="logout">Logout</a></li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-                
-            </div>
-
+            <li class="nav-item ms-2 d-md-inline">
+                <a href="#" class="btn btn-secondary"><i class="bi bi-person-fill"></i><?php echo $_SESSION['username']; ?><i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li class="nav-item ms-2 d-none"><a class="btn btn-secondary" href="<?php echo BASE_URL . "/logout.php"; ?>">Logout</a></li>
+                </ul>
+            </li>
+                 
         </div>
-
-    </div>
+    </nav>
 
 </header>
