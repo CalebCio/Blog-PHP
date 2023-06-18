@@ -1,3 +1,5 @@
+<?php $topics = selectAll('topics'); ?>
+
 <header>
 
     <nav class="navbar navbar-expand-md fixed-top bg-white navbar-light">

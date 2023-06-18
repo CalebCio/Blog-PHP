@@ -29,6 +29,7 @@
 
     <!-- Linking Css file  -->
     <link rel="stylesheet" href="assets/CSS/styles.css"> 
+    <link rel="icon" href="<?php echo BASE_URL . '/assets/images/vellfavicon.png'; ?>">
 
 
       <!-- CDN LINK -->
